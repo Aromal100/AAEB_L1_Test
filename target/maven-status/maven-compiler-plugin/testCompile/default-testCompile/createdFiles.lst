@@ -1,0 +1,6 @@
+testCases\Test_L1_Login.class
+pageObjects\LoginPageL1.class
+testBase\DomainPage.class
+pageObjects\BaseL1Page.class
+testCases\Test_L1_SchoolCreation.class
+pageObjects\SchoolCreation.class
