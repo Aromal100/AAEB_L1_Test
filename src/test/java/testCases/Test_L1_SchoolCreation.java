@@ -43,16 +43,21 @@ public class Test_L1_SchoolCreation extends DomainPage {
 		sc.adminmail(admail);
 		sc.doe();
 		sc.selectlevel();
-		sc.schgooltype();
-		sc.ownership();
+		sc.schcooltype();
 		sc.category();
+		sc.ownership();
+		sc.stuprefix();
+		sc.empprefix();
+		sc.city();
+		sc.subcity();
 		sc.save1();
 	//page2
 		Thread.sleep(2000);
-		sc.subcity();
-		sc.woreda();
+		sc.scroll();
+		sc.aem();
+		Thread.sleep(2000);
+		sc.asm();
 		sc.academiclanguage();
-		sc.education();
 		sc.save2();
 	//page3
 		Thread.sleep(2000);
@@ -61,7 +66,6 @@ public class Test_L1_SchoolCreation extends DomainPage {
 		sc.virtuallibrary();
 		sc.trainingcenter();
 		sc.ictcenter();
-		sc.digitalinformation();
 		sc.save3();
 		
 	}

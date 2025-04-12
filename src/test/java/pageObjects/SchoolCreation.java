@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -86,8 +87,8 @@ public class SchoolCreation extends LoginPageL1{
 	public void doe()
 	{
 		
-		String month="ህዳር";
-		String year="2017";
+		String month="April";
+		String year="2024";
 		String date="1";
 		
 		doe.click();
@@ -114,30 +115,28 @@ public class SchoolCreation extends LoginPageL1{
     	 }
      }
 	}
+	
 	@FindBy(id="school_academic_level_")
 	WebElement schoollevel;
 	public void selectlevel()
 	{
 		Select s= new Select(schoollevel);
-		s.selectByValue("1");
-		s.selectByValue("2");
-		s.selectByValue("3");
-		s.selectByValue("4");
+		s.selectByValue("pre-primary_");
 	}
 	@FindBy(id="school_type_")
 	WebElement schooltype;
-	public void schgooltype()
+	public void schcooltype()
 	{
 		Select s= new Select(schooltype);
 		s.selectByValue("satellite");
 	}
 	
-	@FindBy(id="ownership")
+	@FindBy(id="ownership_")
 	WebElement ownership;
 	public void ownership()
 	{
 		Select s= new Select(ownership);
-		s.selectByValue("government");
+		s.selectByValue("government_");
 	}
 	
 	@FindBy(id="school_category_")
@@ -148,11 +147,26 @@ public class SchoolCreation extends LoginPageL1{
 		s.selectByValue("permanent");
 	}
 	
-	@FindBy(xpath="//*[text()='Save & Next']")
-	WebElement save1;
-	public void save1()
+	@FindBy(id="student_id_prefix_")
+	WebElement stuprefix;
+	public void stuprefix()
 	{
-		save1.click();
+		stuprefix.sendKeys("hello");
+	}
+	
+	@FindBy(id="employee_id_prefix_")
+	WebElement empprefix;
+	public void empprefix()
+	{
+		empprefix.sendKeys("helo");
+	}
+	
+	@FindBy(id="city_")
+	WebElement city;
+	public void city()
+	{
+		Select s= new Select(city);
+		s.selectByValue("12");
 	}
 	
 	@FindBy(id="sub_city_")
@@ -163,28 +177,104 @@ public class SchoolCreation extends LoginPageL1{
 		s.selectByValue("84");
 	}
 	
-	@FindBy(id="woreda")
-	WebElement woreda;
-	public void woreda()
+	
+	@FindBy(xpath="//*[text()='Save & Next']")
+	WebElement save1;
+	public void save1()
 	{
-		Select s= new Select(woreda);
-		s.selectByValue("785");
+		save1.click();
 	}
+	
+	//page2
+	
+	@FindBy(id="academic_start_month_")
+	WebElement asm;
+	public void asm()
+	{
+		
+		String month="April";
+		String year="2024";
+		String date="1";
+		
+		asm.click();//span[@id='activeyear']
+		while(true)
+		{
+			String activeyear=driver.findElement(By.xpath("//*[@id=\"activeyear\"]")).getText();//2017
+			String activemonth=driver.findElement(By.xpath("//*[@id=\"activemonth\"]")).getText();//ህዳር
+			
+			if(activeyear.equals(year) && activemonth.equals(month) )
+			{
+				break;
+			}
+			
+			driver.findElement(By.xpath("//button[@id='btnmonthprev']//*[name()='svg']")).click();
+		}
+		
+     List<WebElement> dates=driver.findElements(By.xpath("//*[@class='col f-05 d-flex flex-row justify-content-center']/button"));
+     for(WebElement d:dates)//list of dates
+     {
+    	 if(d.getText().equals(date))
+    	 {
+    		 d.click();
+    		 break;
+    	 }
+     }
+	}
+	
+	
+	@FindBy(id="academic_start_month_")
+	WebElement first;
+	public void scroll()
+	{
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();",first);
+	}
+	
+	@FindBy(id="academic_end_month_")
+	WebElement aem;
+	public void aem()
+	{
+		
+		String month="April";
+		String year="2024";
+		String date="30";
+		
+		aem.click();
+		while(true)
+		{
+			String activeyear=driver.findElement(By.xpath("//*[@id=\"activeyear\"]")).getText();//2017
+			String activemonth=driver.findElement(By.xpath("//*[@id=\"activemonth\"]")).getText();//ህዳር
+			
+			if(activeyear.equals(year) && activemonth.equals(month) )
+			{
+				break;
+			}
+			
+			driver.findElement(By.xpath("//button[@id='btnmonthprev']//*[name()='svg']")).click();
+		}
+		
+     List<WebElement> dates=driver.findElements(By.xpath("//*[@class='col f-05 d-flex flex-row justify-content-center']/button"));
+     for(WebElement d:dates)//list of dates
+     {
+    	 if(d.getText().equals(date))
+    	 {
+    		 d.click();
+    		 break;
+    	 }
+     }
+	}
+	
+	
+	
 	
 	@FindBy(id="academic_language_NaN")
 	WebElement academiclanguage;
 	public void academiclanguage()
 	{
 		Select s= new Select(academiclanguage);
+		s.selectByValue("amharic");
 	}
 	
-	@FindBy(id="education_delivery_program")
-	WebElement education;
-	public void education()
-	{
-		Select s= new Select(education);
-		s.selectByValue("p_3");
-	}
 	
 	@FindBy(xpath="//*[text()='Save & Next']")
 	WebElement save2;
@@ -206,7 +296,7 @@ public class SchoolCreation extends LoginPageL1{
 	public void digitallibrary()
 	{
 		Select s= new Select(digitallibrary);
-		s.selectByValue("available");
+		s.selectByValue("available_");
 	}
 	
 	@FindBy(id="virtual_library")
@@ -222,24 +312,17 @@ public class SchoolCreation extends LoginPageL1{
 	public void trainingcenter()
 	{
 		Select s= new Select(trainingcenter);
-		s.selectByValue("available");
+		s.selectByValue("available_");
 	}
 	
-	@FindBy(id="ict_center")
+	@FindBy(id="if_there_are_ict_center")
 	WebElement ictcenter;
 	public void ictcenter()
 	{
 		Select s= new Select(ictcenter);
-		s.selectByValue("available");
+		s.selectByValue("available_");
 	}
 	
-	@FindBy(id="digital_information_collection_facility_")
-	WebElement digitalinformation;
-	public void digitalinformation()
-	{
-		Select s= new Select(digitalinformation);
-		s.selectByValue("available");
-	}
 	
 	@FindBy(xpath="//*[text()='Save']")
 	WebElement save3;
@@ -248,5 +331,3 @@ public class SchoolCreation extends LoginPageL1{
 		save3.click();
 	}
 }
-
-

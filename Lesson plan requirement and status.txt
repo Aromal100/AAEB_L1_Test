@@ -1,0 +1,29 @@
+Lesson plan requirement and status requirement
+-----------------------------------------------
+
+1) When teacher finish a lesson plan, the status should be New and should be sent to hod
+2) When teacher put a lesson plan as save & draft , the status should be draft 
+3) The teacher should only get to edit the draft lesson plan 
+4) The teacher can only view the finish lesson plan. And pdf file should show the view(eye) button no download needed
+5) For HOD the teacher submitted lesson plan should show the status as New
+6) For HOD the lesson plan can view and give the review and resubmit
+7) Also when checking the lesson plan the HOD name should be labeled in the review box 
+8) When HOD resubmit the lesson plan the teacher should get the status as resubmit
+9) And teacher after checking the lesson plan and resubmit the lesson plan, the status should be resubmitted
+10) The resubmitted lesson plan, should get the status for HOD as resubmitted
+11) When HOD set as review the lesson plan, the teacher should get the status as reviewed by HOD
+12) After the HOD reviewed lesson plan, this lesson plan will get to the principal, there the status will be New, until the review of HOD the principal should not get any lesson plan.
+13) When principal view the lesson plan, the principal name should be label in the down box
+14) When principal resubmit the lesson plan, the status for principal should be resubmit
+15) The teacher should get the resubmit lesson plan of principal in status as resubmit by principal 
+16) The HOD should get the resubmit lesson plan of principal in status as resubmit by principal 
+17) When teacher reapply the lesson plan of the resubmitted of principal, the status should be resubmitted.
+18) The teacher reapply the lesson plan of the resubmitted of principal, the status should get for HOD as resubmitted 
+19) When principal approve the lesson plan, the principal get the status as approve
+20) The teacher should get the approve of principal in status as approve by principal
+21) The HOD should get the approve of principal in status as approve by principal.
+22) The HOD, principal should only get the view option in the action.
+
+
+
+
